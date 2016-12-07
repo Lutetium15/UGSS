@@ -4,7 +4,7 @@ import java.util.List;
 /**
  * Alumni object to store data on a single alumni.
  * 
- * @author GROUP8
+ * @author GROUP8(Alec)
  * @version 12/3/2016
  *
  */

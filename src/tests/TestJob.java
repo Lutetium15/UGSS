@@ -2,30 +2,26 @@ package tests;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
+import model.Job;
 import org.junit.Test;
 
-import model.Job;
+
 
 /**
  * Tests of the job class.
- * @author Dema
- *@version 12.04.2016
+ * @author GROUP8(Dema)
+ *@version 12/04/2016
  */
-public class testJob {
-
-    @Before
-    public void setUp() throws Exception {
-    }
-    
+public class TestJob {
     // CONSTRUCTOR TESTS
     
     /**
-     * Tests constructor under normal expected parameters
+     * Tests constructor under normal expected parameters.
      */
     @Test
     public void testConstructorNormal() {            
-        Job job = new Job("Amazon", "SDE", "Coding", "I code stuff", "", 80000, true);
+        final Job job = new Job("Amazon", "SDE", "Coding",
+                "I code stuff", "", 80000, true);
         
         // Getters are also tested here
         assertEquals("Amazon", job.getMyCompany());
@@ -40,17 +36,21 @@ public class testJob {
     /**
      * Tests constructor to see whether it properly throws exception if no company name passed.
      */
+    @SuppressWarnings("unused")
     @Test(expected = IllegalArgumentException.class)
     public void testNullCompanyConstructor() {           
-            Job job = new Job(null, "SDE", "Coding", "I code stuff", "", 80000, true);
+        final Job job = new Job(
+                    null, "SDE", "Coding", "I code stuff", "", 80000, true);
     }
     
     /**
      * Tests constructor to see whether it properly throws exception if no position passed.
      */
+    @SuppressWarnings("unused")
     @Test(expected = IllegalArgumentException.class)
     public void testNullPositionConstructor() {           
-            Job job = new Job("Amazon", null, "Coding", "I code stuff", "", 80000, true);
+        final Job job = new Job(
+                    "Amazon", null, "Coding", "I code stuff", "", 80000, true);
     }
     
     /**
@@ -69,9 +69,11 @@ public class testJob {
     /**
      * Tests constructor to see whether it properly throws exception if negative salary passed.
      */
+    @SuppressWarnings("unused")
     @Test(expected = IllegalArgumentException.class)
     public void testNegativeSalary() {           
-            Job job = new Job("Amazon", "SDE", "Coding", "I code stuff", "", -10000, true);
+        final Job job = new Job(
+                    "Amazon", "SDE", "Coding", "I code stuff", "", -10000, true);
     }
     
     /**
@@ -79,7 +81,8 @@ public class testJob {
      */
     @Test
     public void testFalseActiveConstructor() {           
-        Job job = new Job("Amazon", "SDE", null, "I code stuff", "", 80000, false);
+        final Job job = new Job(
+                "Amazon", "SDE", null, "I code stuff", "", 80000, false);
         assertNotNull(job);
         assertFalse(job.isActive());
     }
@@ -91,7 +94,8 @@ public class testJob {
      */
     @Test
     public void testSetActive() {           
-        Job job = new Job("Amazon", "SDE", null, "I code stuff", "", 80000, false);
+        final Job job = new Job(
+                "Amazon", "SDE", null, "I code stuff", "", 80000, false);
         assertNotNull(job);
         job.setActive(true);
         assertTrue(job.isActive());
@@ -102,18 +106,21 @@ public class testJob {
      */
     @Test
     public void testSetSalaryNormal() {           
-        Job job = new Job("Amazon", "SDE", null, "I code stuff", "", 80000, false);
+        final Job job = new Job(
+                "Amazon", "SDE", null, "I code stuff", "", 80000, false);
         assertNotNull(job);
         job.setSalary(20000);
         assertEquals(20000, job.getSalary(), .00001);
     }
     
     /**
-     * Tests setSalary to see whether it properly throws an exception when set salary is negative.
+     * Tests setSalary to see whether 
+     * it properly throws an exception when set salary is negative.
      */
     @Test(expected = IllegalArgumentException.class)
     public void testSetSalaryNegative() {           
-        Job job = new Job("Amazon", "SDE", null, "I code stuff", "", 80000, false);
+        final Job job = new Job(
+                "Amazon", "SDE", null, "I code stuff", "", 80000, false);
         assertNotNull(job);
         job.setSalary(-20000);
     }
@@ -123,20 +130,23 @@ public class testJob {
      */
     @Test
     public void testSetCompanyNormal() {           
-        Job job = new Job("Amazon", "SDE", "Coding", "I code stuff", "", 80000, false);
+        final Job job = new Job(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 80000, false);
         assertNotNull(job);
-        job.setMyCompany("Microsoft");;
+        job.setMyCompany("Microsoft");
         assertEquals("Microsoft", job.getMyCompany());
     }
     
     /**
-     * Tests setCompany to see whether it properly throws an exception when company name passed in is null..
+     * Tests setCompany to see whether 
+     * it properly throws an exception when company name passed in is null..
      */
     @Test(expected = IllegalArgumentException.class)
     public void testSetCompanyNull() {           
-        Job job = new Job("Amazon", "SDE", "Coding", "I code stuff", "", 80000, false);
+        final Job job = new Job(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 80000, false);
         assertNotNull(job);
-        job.setMyCompany(null);;
+        job.setMyCompany(null);
     }
     
     /**
@@ -144,18 +154,21 @@ public class testJob {
      */
     @Test
     public void testSetPositionNormal() {           
-        Job job = new Job("Amazon", "SDE", "Coding", "I code stuff", "", 80000, false);
+        final Job job = new Job(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 80000, false);
         assertNotNull(job);
         job.setMyPosition("QA");
         assertEquals("QA", job.getMyPosition());
     }
     
     /**
-     * Tests setPosition to see whether it properly throws an exception when position passed in is null..
+     * Tests setPosition to see whether
+     *  it properly throws an exception when position passed in is null..
      */
     @Test(expected = IllegalArgumentException.class)
     public void testSetPositionNull() {           
-        Job job = new Job("Amazon", "SDE", "Coding", "I code stuff", "", 80000, false);
+        final Job job = new Job(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 80000, false);
         assertNotNull(job);
         job.setMyPosition(null);
     }
@@ -165,7 +178,8 @@ public class testJob {
      */
     @Test
     public void testSetSkillsReq() {           
-        Job job = new Job("Amazon", "SDE", "Coding", "I code stuff", "", 80000, false);
+        final Job job = new Job(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 80000, false);
         assertNotNull(job);
         job.setMySkillsReq("Working hard");
         assertEquals("Working hard", job.getMySkillsReq());
@@ -179,7 +193,8 @@ public class testJob {
      */
     @Test
     public void testSetDescription() {           
-        Job job = new Job("Amazon", "SDE", "Coding", "I code stuff", "", 80000, false);
+        final Job job = new Job(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 80000, false);
         assertNotNull(job);
         job.setMyDescription("Have to work hard");
         assertEquals("Have to work hard", job.getMyDescription());
@@ -193,7 +208,8 @@ public class testJob {
      */
     @Test
     public void testSetMiscComments() {           
-        Job job = new Job("Amazon", "SDE", "Coding", "I code stuff", "", 80000, false);
+        final Job job = new Job(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 80000, false);
         assertNotNull(job);
         job.setMyMiscComments("Poor chap has to work hard");
         assertEquals("Poor chap has to work hard", job.getMyMiscComments());

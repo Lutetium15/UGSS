@@ -2,31 +2,27 @@ package tests;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
+import model.Internship;
 import org.junit.Test;
 
-import model.Internship;
-import model.Job;
+
 
 /**
  * Tests of the internship class.
- * @author Dema
- * @version 12.04.2016
+ * @author GROUP8(Dema)
+ * @version 12/04/2016
  */
-public class testInternship {
-
-    @Before
-    public void setUp() throws Exception {
-    }
+public class TestInternship {
 
     // CONSTRUCTOR TESTS
 
     /**
-     * Tests constructor under normal expected parameters
+     * Tests constructor under normal expected parameters.
      */
     @Test
     public void testConstructorNormal() {            
-        Internship inship = new Internship("Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
+        final Internship inship = new Internship(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
 
         // Getters are also tested here
         assertEquals("Amazon", inship.getMyCompany());
@@ -41,17 +37,21 @@ public class testInternship {
     /**
      * Tests constructor to see whether it properly throws exception if no company name passed.
      */
+    @SuppressWarnings("unused")
     @Test(expected = IllegalArgumentException.class)
     public void testNullCompanyConstructor() {           
-        Internship inship = new Internship(null, "SDE", "Coding", "I code stuff", "", 20.00, 3);
+        final Internship inship = new Internship(
+                null, "SDE", "Coding", "I code stuff", "", 20.00, 3);
     }
 
     /**
      * Tests constructor to see whether it properly throws exception if no position passed.
      */
+    @SuppressWarnings("unused")
     @Test(expected = IllegalArgumentException.class)
     public void testNullPositionConstructor() {           
-        Internship inship = new Internship("Amazon", null, "Coding", "I code stuff", "", 20.00, 3);
+        final Internship inship = new Internship(
+                "Amazon", null, "Coding", "I code stuff", "", 20.00, 3);
     }
 
     /**
@@ -59,7 +59,8 @@ public class testInternship {
      */
     @Test
     public void testOkNullConstructor() {           
-        Internship inship = new Internship("Amazon", "SDE", null, "I code stuff", "", 20.00, 3);
+        Internship inship = new Internship(
+                "Amazon", "SDE", null, "I code stuff", "", 20.00, 3);
         assertNotNull(inship);
         inship = new Internship("Amazon", "SDE", "Coding", null, "", 20.00, 3);
         assertNotNull(inship);
@@ -70,17 +71,22 @@ public class testInternship {
     /**
      * Tests constructor to see whether it properly throws exception if negative wage passed.
      */
+    @SuppressWarnings("unused")
     @Test(expected = IllegalArgumentException.class)
     public void testNegativeWage() {           
-        Internship inship = new Internship("Amazon", "SDE", "Coding", "I code stuff", "", -20.00, 3);
+        final Internship inship = new Internship(
+                "Amazon", "SDE", "Coding", "I code stuff", "", -20.00, 3);
     }
 
     /**
-     * TTests constructor to see whether it properly throws exception if negative duration passed.
+     * TTests constructor to see whether 
+     * it properly throws exception if negative duration passed.
      */
+    @SuppressWarnings("unused")
     @Test(expected = IllegalArgumentException.class)
     public void testNegativeDurationConstructor() {           
-        Internship inship = new Internship("Amazon", "SDE", "Coding", "I code stuff", "", 20.00, -3);
+        final Internship inship = new Internship(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 20.00, -3);
     }
 
     // SETTER TESTS
@@ -90,7 +96,8 @@ public class testInternship {
      */
     @Test
     public void testSetWageNormal() {           
-        Internship inship = new Internship("Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
+        final Internship inship = new Internship(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
         assertNotNull(inship);
         inship.setMyWage(40.00);
         assertEquals(40.00, inship.getMyWage(), .00001);
@@ -101,7 +108,8 @@ public class testInternship {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testSetWageNegative() {           
-        Internship inship = new Internship("Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
+        final Internship inship = new Internship(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
         assertNotNull(inship);
         inship.setMyWage(-40.00);
     }
@@ -111,18 +119,21 @@ public class testInternship {
      */
     @Test
     public void testSetDurationNormal() {           
-        Internship inship = new Internship("Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
+        final Internship inship = new Internship(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
         assertNotNull(inship);
         inship.setMyDuration(4);
         assertEquals(4, inship.getMyDuration(), .00001);
     }
     
     /**
-     * Tests setDuration to see whether it properly throws an exception when duration is negative.
+     * Tests setDuration to see whether 
+     * it properly throws an exception when duration is negative.
      */
     @Test(expected = IllegalArgumentException.class)
     public void testSetDurationNegative() {           
-        Internship inship = new Internship("Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
+        final Internship inship = new Internship(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
         assertNotNull(inship);
         inship.setMyDuration(-4);
     }
@@ -132,20 +143,23 @@ public class testInternship {
      */
     @Test
     public void testSetCompanyNormal() {           
-        Internship inship = new Internship("Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
+        final Internship inship = new Internship(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
         assertNotNull(inship);
-        inship.setMyCompany("Microsoft");;
+        inship.setMyCompany("Microsoft");
         assertEquals("Microsoft", inship.getMyCompany());
     }
 
     /**
-     * Tests setCompany to see whether it properly throws an exception when company name passed in is null..
+     * Tests setCompany to see whether
+     *  it properly throws an exception when company name passed in is null..
      */
     @Test(expected = IllegalArgumentException.class)
     public void testSetCompanyNull() {           
-        Internship inship = new Internship("Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
+        final Internship inship = new Internship(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
         assertNotNull(inship);
-        inship.setMyCompany(null);;
+        inship.setMyCompany(null);
     }
 
     /**
@@ -153,18 +167,21 @@ public class testInternship {
      */
     @Test
     public void testSetPositionNormal() {           
-        Internship inship = new Internship("Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
+        final Internship inship = new Internship(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
         assertNotNull(inship);
         inship.setMyPosition("QA");
         assertEquals("QA", inship.getMyPosition());
     }
 
     /**
-     * Tests setPosition to see whether it properly throws an exception when position passed in is null..
+     * Tests setPosition to see whether
+     *  it properly throws an exception when position passed in is null..
      */
     @Test(expected = IllegalArgumentException.class)
     public void testSetPositionNull() {           
-        Internship inship = new Internship("Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
+        final Internship inship = new Internship(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
         assertNotNull(inship);
         inship.setMyPosition(null);
     }
@@ -174,7 +191,8 @@ public class testInternship {
      */
     @Test
     public void testSetSkillsReq() {           
-        Internship inship = new Internship("Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
+        final Internship inship = new Internship(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
         assertNotNull(inship);
         inship.setMySkillsReq("Working hard");
         assertEquals("Working hard", inship.getMySkillsReq());
@@ -188,7 +206,8 @@ public class testInternship {
      */
     @Test
     public void testSetDescription() {           
-        Internship inship = new Internship("Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
+        final Internship inship = new Internship(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
         assertNotNull(inship);
         inship.setMyDescription("Have to work hard");
         assertEquals("Have to work hard", inship.getMyDescription());
@@ -202,7 +221,8 @@ public class testInternship {
      */
     @Test
     public void testSetMiscComments() {           
-        Internship inship = new Internship("Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
+        final Internship inship = new Internship(
+                "Amazon", "SDE", "Coding", "I code stuff", "", 20.00, 3);
         assertNotNull(inship);
         inship.setMyMiscComments("Poor chap has to work hard");
         assertEquals("Poor chap has to work hard", inship.getMyMiscComments());

@@ -7,8 +7,6 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 /**
  * Main Driver to initialize the GUIs.
@@ -18,7 +16,7 @@ import javax.swing.event.ChangeListener;
 public class MainGUI extends JFrame implements MouseListener {
 
     /**
-     * 
+     * Id for serialization.
      */
     private static final long serialVersionUID = 7352018073986710489L;
     /**

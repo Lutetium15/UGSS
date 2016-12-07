@@ -1,27 +1,22 @@
 package tests;
 
 import static org.junit.Assert.*;
-import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
+import java.util.List;
 
 import model.Alumni;
 import model.AlumniCollection;
+import org.junit.Test;
+
+
 
 /**
  * Test class for Alumni Collection.
- * @author GROUP8
+ * @author GROUP8(Dema)
  * @version 12/6/2016
  *
  */
 public class AlumniCollectionTests {
-    @Before
-    public void SetUp(){
-        
-    }
-    
-   
     /**
      * Test reportSearch.
      */
@@ -106,7 +101,7 @@ public class AlumniCollectionTests {
     /** Tests whether name is correctly gotten. */
     @Test
     public void testGetName() {
-        List<Alumni> alumni = AlumniCollection.searchName("Alec Walsh");
+        final List<Alumni> alumni = AlumniCollection.searchName("Alec Walsh");
         Alumni alum = null;
         if (alumni.size() != 0) {
             alum = alumni.get(0);
@@ -118,7 +113,7 @@ public class AlumniCollectionTests {
     /** Tests whether ID is correctly gotten. */
     @Test
     public void testGetID() {
-        Alumni alumni = AlumniCollection.searchID(1);
+        final Alumni alumni = AlumniCollection.searchID(1);
         assertNotNull(alumni);
         assertEquals("Alec Walsh", alumni.getMyName());
         assertEquals(1, alumni.getMyID());
@@ -127,7 +122,7 @@ public class AlumniCollectionTests {
     /** Tests whether returned list not not null. */
     @Test
     public void testGetAlumni() {
-        List<Alumni> alumni = AlumniCollection.getAlumni();
+        final List<Alumni> alumni = AlumniCollection.getAlumni();
         assertNotNull(alumni);
     }
     

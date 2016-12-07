@@ -4,13 +4,12 @@ import java.io.Serializable;
 
 /**
  * Holds data regarding an internship. 
- * @author Dema
- *@version 11.15.2016
+ * @author GROUP8(Dema)
+ *@version 11/15/2016
  */
 public class Internship extends Employment implements Serializable {
-
     /**
-     * 
+     * id for serialization.
      */
     private static final long serialVersionUID = -8442795014510871481L;
 
@@ -30,7 +29,8 @@ public class Internship extends Employment implements Serializable {
      * @param theWage Hourly wage in dollars.
      * @param theDuration Length of internship in months.
      */
-    public Internship(final String theCompany, final String thePosition, final String theSkillsReq, 
+    public Internship(final String theCompany,
+            final String thePosition, final String theSkillsReq, 
             final String theDescription, final String theMiscComments,
             final double theWage, final int theDuration) {
         super(theCompany, thePosition, theSkillsReq, theDescription, theMiscComments);

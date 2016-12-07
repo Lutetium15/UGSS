@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 /**
  * Holds data regarding a job.
- * @author Dema
- *@version 11.15.2016
+ * @author GROUP8(Dema)
+ *@version 11/15/2016
  */
 public class Job extends Employment implements Serializable {
 

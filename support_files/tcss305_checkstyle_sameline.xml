@@ -68,7 +68,7 @@ The "braces on same line" style for Autumn 2014  TCSS 305.
       <message key="executableStatementCount" value="Executable statement count is {0,number,integer} (max allowed for a constructor is {1,number,integer})."/>
     </module>
     <module name="ExecutableStatementCount">
-      <property name="max" value="60"/>
+      <property name="max" value="80"/>
       <property name="tokens" value="METHOD_DEF"/>
       <message key="executableStatementCount" value="Executable statement count is {0,number,integer} (max allowed for a method is {1,number,integer})."/>
     </module>
@@ -87,7 +87,7 @@ The "braces on same line" style for Autumn 2014  TCSS 305.
       <message key="maxLen.method" value="Constructor length is {0,number,integer} lines (max allowed is {1,number,integer})."/>
     </module>
     <module name="MethodLength">
-      <property name="max" value="100"/>
+      <property name="max" value="150"/>
       <property name="tokens" value="METHOD_DEF"/>
     </module>
     <module name="AnonInnerLength"/>
@@ -148,7 +148,7 @@ The "braces on same line" style for Autumn 2014  TCSS 305.
       <message key="multiple.variable.declarations" value="Only one variable definition allowed per line."/>
     </module>
     <module name="NestedIfDepth">
-      <property name="max" value="2"/>
+      <property name="max" value="4"/>
     </module>
     <module name="NestedTryDepth">
       <property name="max" value="2"/>
@@ -203,7 +203,6 @@ The "braces on same line" style for Autumn 2014  TCSS 305.
       <property name="maxPublic" value="40"/>
     </module>
     <module name="OneStatementPerLine"/>
-    <module name="AbstractClassName"/>
     <module name="InnerTypeLast">
       <message key="arrangement.members.before.inner" value="Inner classes should be declared after all fields and methods."/>
     </module>
@@ -237,7 +236,7 @@ The "braces on same line" style for Autumn 2014  TCSS 305.
     <module name="MissingOverride"/>
   </module>
   <module name="FileLength">
-    <property name="max" value="1000"/>
+    <property name="max" value="1500"/>
   </module>
   <module name="FileTabCharacter"/>
 </module>

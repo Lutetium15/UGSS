@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 /**
  * Holds data regarding a place of employment. 
- * @author Dema
- *@version 11.15.2016
+ * @author GROUP8(Dema)
+ *@version 11/15/2016
  */
 public abstract class Employment implements Serializable {
 
@@ -37,7 +37,8 @@ public abstract class Employment implements Serializable {
      * @param theDescription A description of what the job entailed.
      * @param theMiscComments Any miscellaneous comments.
      */
-    protected Employment(final String theCompany, final String thePosition, final String theSkillsReq, 
+    protected Employment(final String theCompany, 
+            final String thePosition, final String theSkillsReq, 
             final String theDescription, final String theMiscComments) {
         if (theCompany == null || thePosition == null) {
             throw new IllegalArgumentException();

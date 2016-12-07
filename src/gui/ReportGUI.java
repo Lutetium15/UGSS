@@ -19,8 +19,8 @@ import model.AlumniCollection;
 
 /**
  * Report Tab for GUI will generate report based on user input.
- * @author Bui
- * @version November 29,2016
+ * @author GROUP8(Bui)
+ * @version 11/29/2016
  */
 public class ReportGUI extends JPanel implements ActionListener {
     
@@ -67,21 +67,23 @@ public class ReportGUI extends JPanel implements ActionListener {
     /**
      * Item Column names.
      */
-    private String[] mItemColumnNames = {"Name", "Student ID", "Degree Track", "Degree Level"};
+    private String[] myItemColumnNames = {"Name",
+                                          "Student ID", "Degree Track", 
+                                          "Degree Level"};
     /**
      * Data to display.
      */
-    private Object [][] mData;
+    private Object [][] myData;
     /**
      * List of Alumni.
      */
-    private List<Alumni> mList;    
+    private List<Alumni> myList;    
     /**
      * Constructor for report GUI.
      */
     public ReportGUI() {
         setLayout(new BorderLayout());
-        mList = getData(ALL, ALL);
+        myList = getData(ALL, ALL);
         createComponents();
         setVisible(true);
         setSize(FIVE, FIVE);
@@ -97,26 +99,27 @@ public class ReportGUI extends JPanel implements ActionListener {
             final String theTrack) {
 
         if (theLevel != null && theTrack != null) {
-            mList = AlumniCollection.reportsearch(theLevel, theTrack);
+            myList = AlumniCollection.reportsearch(theLevel, theTrack);
         } else {
-            mList = AlumniCollection.getAlumni();
+            myList = AlumniCollection.getAlumni();
         }
-        if (mList != null) {
-            mData = new Object[mList.size()][mItemColumnNames.length];
-            for (int i = 0; i < mList.size(); i++) {
-                mData[i][0] = mList.get(i).getMyName();
-                mData[i][1] = mList.get(i).getMyID();
-                mData[i][2] = mList.get(i).getMyDegreeTrack();
-                mData[i][3] = mList.get(i).getMyDegreeLevel();
+        if (myList != null) {
+            myData = new Object[myList.size()][myItemColumnNames.length];
+            for (int i = 0; i < myList.size(); i++) {
+                myData[i][0] = myList.get(i).getMyName();
+                myData[i][1] = myList.get(i).getMyID();
+                myData[i][2] = myList.get(i).getMyDegreeTrack();
+                myData[i][3] = myList.get(i).getMyDegreeLevel();
             }
         }
 
-        return mList;
+        return myList;
     }
     
     /**
      * Create components for report tab.
      */
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     private void createComponents() {
         final Object [] degreeLevel = AlumniCollection.getDegreeLevel();
         final Object[] degreeTrack = AlumniCollection.getDegreeTrack();
@@ -147,7 +150,7 @@ public class ReportGUI extends JPanel implements ActionListener {
         panel.add(myBtnGenerate);
         myPnlReport.add(panel);  
         myPnlContent = new JPanel();
-        myTable = new JTable(mData, mItemColumnNames);
+        myTable = new JTable(myData, myItemColumnNames);
         myScrollPane = new JScrollPane(myTable);
         myPnlContent.add(myScrollPane);
         add(myPnlContent, BorderLayout.SOUTH);
@@ -163,9 +166,9 @@ public class ReportGUI extends JPanel implements ActionListener {
         if (theE.getSource() == myBtnGenerate) {
             final String searchKey = (String) myCmbCategories.getSelectedItem();
             final String searchKey1 = (String) myCmbDegreeTrack.getSelectedItem();
-            mList = getData(searchKey, searchKey1);
+            myList = getData(searchKey, searchKey1);
             myPnlContent.removeAll();
-            myTable = new JTable(mData, mItemColumnNames);
+            myTable = new JTable(myData, myItemColumnNames);
             myScrollPane = new JScrollPane(myTable);
             myPnlContent.add(myScrollPane);
             myPnlContent.revalidate();

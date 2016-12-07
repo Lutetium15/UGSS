@@ -16,7 +16,7 @@ import org.junit.Test;
 
 /**
  * Test for Alumni Class.
- * @author GROUP8
+ * @author GROUP8(Alec)
  * @version 12/6/2016
  *
  */

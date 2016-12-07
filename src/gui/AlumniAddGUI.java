@@ -22,7 +22,7 @@ import model.TransferCollege;
 
 /**
  * Creates a tab for adding alumni and their information to the system.
- * @author GROUP8
+ * @author GROUP8(Alec)
  * @version 12/3/2016
  *
  */

@@ -2,9 +2,9 @@ package model;
 import java.io.Serializable;
 
 /**
- * TrasferCollege class handle transfer colleges. 
- * @author Bui
- * @version 11/16
+ * TransferCollege class handle transfer colleges. 
+ * @author GROUP8(Bui)
+ * @version 11/16/2016
  */
 public class TransferCollege implements Serializable {
     /**
@@ -35,7 +35,7 @@ public class TransferCollege implements Serializable {
      * @param theTerm     term completed.
      */
     public TransferCollege(final String theName, final double theGPA, 
-            final String theDegree, final String theYear, final String theTerm){
+            final String theDegree, final String theYear, final String theTerm) {
         if (theName == null || theDegree == null || theYear == null
                 || theTerm == null) {
             throw new IllegalArgumentException();
@@ -53,10 +53,10 @@ public class TransferCollege implements Serializable {
         return myName;
     }
     /**
-     * @param myName the myName to set
+     * @param theName the myName to set
      */
-    public void setMyName(String myName) {
-        this.myName = myName;
+    public void setMyName(final String theName) {
+        this.myName = theName;
     }
     /**
      * @return the myDegree
@@ -65,10 +65,10 @@ public class TransferCollege implements Serializable {
         return myDegree;
     }
     /**
-     * @param myDegree the myDegree to set
+     * @param theDegree the myDegree to set
      */
-    public void setMyDegree(String myDegree) {
-        this.myDegree = myDegree;
+    public void setMyDegree(final String theDegree) {
+        this.myDegree = theDegree;
     }
     /**
      * @return the myTerm
@@ -77,10 +77,10 @@ public class TransferCollege implements Serializable {
         return myTerm;
     }
     /**
-     * @param myTerm the myTerm to set
+     * @param theTerm the myTerm to set
      */
-    public void setMyTerm(String myTerm) {
-        this.myTerm = myTerm;
+    public void setMyTerm(final String theTerm) {
+        this.myTerm = theTerm;
     }
     /**
      * @return the myYear
@@ -89,10 +89,10 @@ public class TransferCollege implements Serializable {
         return myYear;
     }
     /**
-     * @param myYear the myYear to set
+     * @param theYear the myYear to set
      */
-    public void setMyYear(String myYear) {
-        this.myYear = myYear;
+    public void setMyYear(final String theYear) {
+        this.myYear = theYear;
     }
     /**
      * @return the myGPA
@@ -101,11 +101,15 @@ public class TransferCollege implements Serializable {
         return myGPA;
     }
     /**
-     * @param myGPA the myGPA to set
+     * @param theGPA the myGPA to set
      */
-    public void setMyGPA(double myGPA) {
-        this.myGPA = myGPA;
+    public void setMyGPA(final double theGPA) {
+        this.myGPA = theGPA;
     }
+    /**
+     * toString override to give name.
+     */
+    @Override
     public String toString() {
         return myName;
     }

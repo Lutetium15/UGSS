@@ -9,14 +9,19 @@ import java.util.List;
 
 /**
  * For holding, modifying, and accessing all alumni in the system.
- * @author Group 8
- * @version 12.03.2016
+ * @author GROUP8
+ * @version 12/03/2016
  */
-public class AlumniCollection {
+public final class AlumniCollection {
 
     /** The DB where the alumni are actually stored. */
     private static AlumniDB mAlumniDB;
-
+    /**Satisfy Checkstyle.
+     * 
+     */
+    private AlumniCollection() {
+        
+    }
     /**
      * Will update an Alumni. All fields but the id field can be modified.
      * @param theAlumni the alumni to be updated.
@@ -24,25 +29,37 @@ public class AlumniCollection {
      * @param theData The new data to be put in the field.
      * @return boolean signifying success or failure.
      */
-    public static boolean updateAlumni(Alumni theAlumni, DataTypes theColumn, Object theData) {
+    public static boolean updateAlumni(final Alumni theAlumni,
+            final DataTypes theColumn, final Object theData) {
 
         String stringColumn = null;
 
-
-        // Figure out what we're modifying and correct the columns and data so that they'll work in SQL
-        switch(theColumn) {
-        case NAME: stringColumn = "`name`"; break;
-        case TRACK: stringColumn = "degreeTrack"; break;
-        case LEVEL: stringColumn = "degreeLevel"; break;
-        case YEAR: stringColumn = "`year`"; break;
-        case TERM: stringColumn = "term"; break;
-        case GPA: stringColumn = "gpa"; break;
-        case UNIEMAIL: stringColumn = "uniEmail"; break;
-        case PERSEMAIL: stringColumn = "persEmail"; break;
-        case INTNSHIP: stringColumn = "internships"; break;
-        case JOB: stringColumn = "jobs"; break;
-        case COLLEGES: stringColumn = "transferColleges"; break;
-        default: return false;
+        // Figure out what we're modifying and correct 
+        //the columns and data so that they'll work in SQL
+        switch (theColumn) {
+            case NAME: stringColumn = "`name`"; 
+                break;
+            case TRACK: stringColumn = "degreeTrack"; 
+                break;
+            case LEVEL: stringColumn = "degreeLevel"; 
+                break;
+            case YEAR: stringColumn = "`year`"; 
+                break;
+            case TERM: stringColumn = "term"; 
+                break;
+            case GPA: stringColumn = "gpa"; 
+                break;
+            case UNIEMAIL: stringColumn = "uniEmail"; 
+                break;
+            case PERSEMAIL: stringColumn = "persEmail"; 
+                break;
+            case INTNSHIP: stringColumn = "internships";
+                break;
+            case JOB: stringColumn = "jobs"; 
+                break;
+            case COLLEGES: stringColumn = "transferColleges"; 
+                break;
+            default: return false;
         }
 
         if (mAlumniDB == null) {
@@ -55,17 +72,17 @@ public class AlumniCollection {
 
     /**
      * Searches for Alumni containing the name or part of the name given.
-     * @param name
-     * @return
+     * @param theName the name of the Alumni being searched.
+     * @return the list of Alumni matching the search.
      */
-    public static List<Alumni> searchName(final String name) {
+    public static List<Alumni> searchName(final String theName) {
         if (mAlumniDB == null) {
             mAlumniDB = new AlumniDB();
         }
         ArrayList<Alumni> cList = new ArrayList<Alumni>();
-        List<Alumni> filterList = new ArrayList<Alumni>();  
+        final List<Alumni> filterList = new ArrayList<Alumni>();  
         cList = (ArrayList<Alumni>) mAlumniDB.getAllAlumni();
-        String lwerCase = name.toLowerCase();
+        final String lwerCase = theName.toLowerCase();
         for (Alumni a : cList) { 
             if (a.getMyName().toLowerCase().contains(lwerCase)) {
                 filterList.add(a);
@@ -77,14 +94,14 @@ public class AlumniCollection {
 
     /**
      * Will search for an Alumni with the matching ID.
-     * @param theID
-     * @return
+     * @param theID The ID to search for.
+     * @return the Alumni with the matching ID.
      */
-    public static Alumni searchID(int theID) {
+    public static Alumni searchID(final int theID) {
         if (mAlumniDB == null) {
             mAlumniDB = new AlumniDB();
         }
-        ArrayList<Alumni> cList = (ArrayList<Alumni>) mAlumniDB.getAllAlumni();
+        final ArrayList<Alumni> cList = (ArrayList<Alumni>) mAlumniDB.getAllAlumni();
         for (Alumni a : cList) { 
             if (a.getMyID() == theID) {
                 return a;
@@ -107,7 +124,6 @@ public class AlumniCollection {
             mAlumniDB.addAlumni(theAlumni);
             return true;
         } catch (final IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return false;

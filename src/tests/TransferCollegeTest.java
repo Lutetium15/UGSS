@@ -9,8 +9,8 @@ import org.junit.Test;
 
 /**
  * A test class for transfer College.
- * @author Bui
- * @version December 6, 2016
+ * @author GROUP8(Bui)
+ * @version 12/6/2016
  *
  */
 public class TransferCollegeTest {
@@ -35,6 +35,7 @@ public class TransferCollegeTest {
     /**
      * Tests constructor with null College name passed.
      */
+    @SuppressWarnings("unused")
     @Test(expected = IllegalArgumentException.class)
     public void testNullCollegeConstructor() {           
         final TransferCollege trans = new TransferCollege(null, 3.8, "abc", "abc", "abc");
@@ -42,6 +43,7 @@ public class TransferCollegeTest {
     /**
      * Tests constructor with null degree name passed.
      */
+    @SuppressWarnings("unused")
     @Test(expected = IllegalArgumentException.class)
     public void testNullDegreeConstructor() {           
         final TransferCollege trans = new TransferCollege("abc", 3.8, null, "abc", "abc");
@@ -49,6 +51,7 @@ public class TransferCollegeTest {
     /**
      * Tests constructor with null degree name passed.
      */
+    @SuppressWarnings("unused")
     @Test(expected = IllegalArgumentException.class)
     public void testNullYearConstructor() {           
         final TransferCollege trans = new TransferCollege("abc", 3.8, "abc", null, "abc");
@@ -56,6 +59,7 @@ public class TransferCollegeTest {
     /**
      * Tests constructor with null term passed.
      */
+    @SuppressWarnings("unused")
     @Test(expected = IllegalArgumentException.class)
     public void testNullTermsConstructor() {           
         final TransferCollege trans = new TransferCollege("abc", 3.8, "abc", "abc", null);
